@@ -1,0 +1,52 @@
+/* JobSlider container */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 0;
+   
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    overflow: visible;
+    margin-top: 20px;
+}
+
+/* Card styling */
+.cards {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 10px;
+    flex: 1;
+}
+
+/* Arrow styling */
+.job-slick-prev, .job-slick-next {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.job-slick-prev {
+    left: -60px;
+}
+
+.job-slick-next {
+    right: -60px;
+}
+
+ 
