@@ -3,12 +3,12 @@ import "../css/LandingPage.css";
 import Assets from "../assets/Assets";
 import { useNavigate } from "react-router-dom";
 
-import DefaultLayout from "../defaultLayout/DefaultLayout";
-import SliderComponent from "../pages/SliderComponent";
-import JobSlider from "./JobSlider";
-import BuyCards from "./BuyCards";
-import Foot from "../com/Foot"
-
+ 
+import SliderComponent from "./SliderComponent";
+import JobSlider from "../com/JobSlider";
+import BuyCards from "../com/BuyCards";
+import Fotter from "../com/Fotter"
+import DefaultHeader from "../com/DefaultHeader";
 function LandingPage() {
   const nav = useNavigate();
 
@@ -19,46 +19,45 @@ function LandingPage() {
   return (
     <>
       <div className="landingPage">
-        <DefaultLayout />
+      <DefaultHeader />
         <div className="imgs">
           <img src={Assets?.Top}></img>
         </div>
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="header"></div>
-          </div>
-          <div className="col-12">
-            <div className="info-body">
-              <div className="col-12">
-                <div className="info-body">
-                  <div className="row">
-                    <div className="col-12">
-                      <div className="search_info" style={{ display: "flex" }}>
-                        <input
-                          className="skills p-2"
-                          placeholder="Enter skills / job title"
-                        ></input>
-                        <input
-                          className="University p-2"
-                          placeholder="University"
-                        ></input>
-                        <input
-                          className="Locations p-2"
-                          placeholder="Locations"
-                        ></input>
-                        <button className="Search btn btn-primary">
-                          Search
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div className="row serchbar" >
+  <div className="col-lg-12">
+    <div className="header"></div>
+  </div>
+  <div className="col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-1">
+    <div className="info-body">
+      <div className="col-12">
+        <div className="info-body">
+          <div className="row">
+            <div className="col-12">
+              <div className="search_info" style={{ display: "flex", justifyContent: "flex-start" }}>
+                <input
+                  className="skills p-2"
+                  placeholder="Enter skills / job title"
+                ></input>
+                <input
+                  className="University p-2"
+                  placeholder="University"
+                ></input>
+                <input
+                  className="Locations p-2"
+                  placeholder="Locations"
+                ></input>
+                <button className=" p-3 btn btn-primary">
+                  Search
+                </button>
               </div>
-
-              
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
 
 <div className="media">
@@ -67,7 +66,7 @@ function LandingPage() {
   <p className="tagline">Your gateway to top jobs and opportunities</p>
   <span>Discover new roles that match your skills and ambitions.</span>
   <span>Apply effortlessly and take the next step in your career journey.</span>
-  <button className="btn btn-primary">Join Us Today!</button>
+  <button style={{backgroundColor:" #AFC9F3"}} className="btn btn-primary text-dark">Join Us Today!</button>
 </div>
 </div>
    
@@ -248,10 +247,7 @@ function LandingPage() {
         <BuyCards />
        </div>
 
-
-       <footer>
-        <Foot />
-       </footer>
+<Fotter/>
 
   
     </>

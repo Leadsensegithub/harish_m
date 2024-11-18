@@ -2,28 +2,26 @@ import React, { useState, useEffect, useRef } from "react";
 import Assets from "../assets/Assets";
 import "../css/Login.css";
 import { useNavigate } from "react-router-dom";
+import Loader from "../com/Loader";
 
 const Login = () => {
   const buttonRef = useRef(null);
   const [activeButton, setActiveButton] = useState("Student");
   const [formActive, setFormActive] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [data, setData] = useState({ mail: "", password: "" });
   const [error, setError] = useState(null);
   const [validation, setValidation] = useState(null);
-
   const DummyData = {
     student: { mail: "hanish@", password: "123" },
     company: { mail: "harish@", password: "456" },
   };
-
   const navigate = useNavigate();
-
   useEffect(() => {
     if (buttonRef.current) {
       buttonRef.current.click();
     }
   }, []);
-
   function handleChange(e) {
     const { name, value } = e.target;
     setData((prevState) => ({ ...prevState, [name]: value }));
@@ -33,55 +31,70 @@ const Login = () => {
       setError(true);
     }
   }
-
   function handleActiveStudent() {
-    setData({ mail: "", password: "" });
+    setData((prevState) => ({
+      mail: "",
+      password: "",
+    }));
     setActiveButton("Student");
+    setLoader(true)
+    setTimeout(()=>{
+        setLoader(false)
+    },3000)
   }
-
   function handleActiveCompany() {
-    setData({ mail: "", password: "" });
+    setData((prevState) => ({
+      mail: "",
+      password: "",
+    }));
     setActiveButton("Company");
+    setLoader(true)
+    setTimeout(()=>{
+        setLoader(false)
+    },3000)
   }
-
   function handleValidation(e) {
     e.preventDefault();
     activeButton === "Company"
       ? handleLoginButtonCompany()
       : handleLoginButtonStudent();
   }
-
   function handleLoginButtonStudent() {
+    console.log(data, DummyData);
+
     if (
       data.mail === DummyData.student.mail &&
       data.password === DummyData.student.password
     ) {
+        console.log(data.mail === DummyData.student.mail &&
+            data.password === DummyData.student.password)
       navigate("/");
     } else {
       setValidation(true);
     }
   }
-
   function handleLoginButtonCompany() {
     if (
       data.mail === DummyData.company.mail &&
       data.password === DummyData.company.password
     ) {
+        console.log(data.mail === DummyData.student.mail &&
+            data.password === DummyData.student.password)
       navigate("/");
     } else {
       setValidation(true);
     }
   }
-
   return (
     <div
       className="container d-flex justify-content-center align-items-center"
       style={{ minHeight: "100vh" }}
     >
+        {loader&&<Loader/>}
       <div className="row w-100">
         <div className="col-md-6 col-12 d-flex justify-content-center align-items-center mb-4 mb-md-0">
           <img
-            src={Assets.LSmediaLOGO}
+            src={Assets.Design}
             alt="Group Illustration"
             className="img-fluid images"
             style={{ maxWidth: "80%", height: "auto" }}
@@ -126,6 +139,7 @@ const Login = () => {
                 />
                 {error && (
                   <small className="d-flex ml-2 text-danger">
+                    {" "}
                     Please enter a valid mail id
                   </small>
                 )}

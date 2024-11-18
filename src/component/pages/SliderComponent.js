@@ -3,7 +3,7 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../css/SliderComponent.css";
+import "../css/Career-Slider.css";
 import Assets from "../assets/Assets";
 
 const SliderComponent = () => {
@@ -31,7 +31,7 @@ const SliderComponent = () => {
 
   // Slider settings
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 800,
     slidesToShow: 1,
@@ -52,7 +52,7 @@ const SliderComponent = () => {
             <img style={{ width: "300px" }} src={Assets.Career_img} />
           </div>
         </div>
-        <div className=" col-lg-6 slider-container">
+        <div className=" col-lg-6  career-slider-container">
           {/* Custom Previous Button */}
           <button
             className="prev-button"
@@ -62,8 +62,8 @@ const SliderComponent = () => {
           </button>
 
           {/* Slider with Career Options */}
-          <div className="col">
-            <Slider ref={sliderRef} {...settings}>
+          <div className="col ">
+            <Slider  ref={sliderRef} {...settings}>
               {careerOptions.map((careerArray, index) => (
                 <div key={index} className="career-slide">
                   {careerArray.map((career, buttonIndex) => (

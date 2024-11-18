@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Header() {
+function Footer() {
     return <h1>Hello, LandingPage!</h1>;
 }
 
-export default Header;
+export default Footer;
