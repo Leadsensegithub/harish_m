@@ -747,3 +747,149 @@ text-align: left;
 
 }
 }
+/* Navbar Container */
+.navbar-container {
+  width: 100%;
+  background-color: #CDDEF8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.5rem 1.5rem;
+  
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  position: relative;
+  margin-top: 10px;
+}
+
+/* Logo */
+.navbar-logo {
+  max-height: 50px;
+}
+
+/* Hamburger Icon */
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  z-index: 1100; /* Ensuring the hamburger icon is clickable above the links */
+}
+
+/* Navbar Links */
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navbar-links ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar-links li {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links .btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-links .btn:hover{
+background-color: red;
+}
+
+.login-btn{
+  background-color: #CDDEF8;
+  color: black;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: solid 1px #547DBF ;
+
+}
+.navbar-links .btn:hover {
+  opacity: 0.8;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #ffffff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+    
+  }
+
+  .navbar-links.active {
+    right: 0; /* Slide-in effect */
+  }
+
+  .navbar-links ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-left: 125px;
+  }
+
+  .navbar-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-links .btn {
+    width: 50%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .navbar-links .login-btn {
+    width: 50%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  
+
+  /* Prevent page scrolling when menu is open */
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-links {
+    display: flex;
+    width: auto;
+  }
+}

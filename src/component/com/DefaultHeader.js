@@ -1,44 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/LandingPage.css"; 
+import "../css/LandingPage.css"; // Assuming your CSS file is in this path
+import { FaBars, FaTimes } from "react-icons/fa"; // Importing the hamburger and close icons
 import Assets from "../assets/Assets";
 
 function DefaultHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  return (
-    <div className="nav-bar">
-      <div className="container-fluid">
-        {/* Header */}
-        <div className="row align-items-center py-3">
-          {/* Logo */}
-          <div className="col-6 col-md-4">
-            <img
-              src={Assets?.LSmediaLOGO}
-              alt="Logo"
-              className="img-fluid"
-              style={{ maxWidth: "150px" }}
-            />
-          </div>
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    if (!menuOpen) {
+      document.body.style.overflow = "hidden"; // Disable scroll when the menu is open
+    } else {
+      document.body.style.overflow = "auto"; // Re-enable scroll when the menu is closed
+    }
+  };
 
-          {/* Buttons for Login and Registration */}
-          <div className="col-6 col-md-8 text-end">
-            <div className="d-flex justify-content-end gap-3 flex-wrap">
-              <button
-                className="btn btn-outline-primary m-1"
-                onClick={() => navigate("/login")}
-              >
+  return (
+    <div className="navbar-container">
+      <div className="navbar">
+        <div className="logo">
+          <img
+            src={Assets.LSmediaLOGO} // Replace with your logo path
+            alt="Logo"
+            className="navbar-logo"
+          />
+        </div>
+
+        {/* Mobile Hamburger Icon */}
+        <div className="navbar-toggle" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes size={30} /> : <FaBars size={30} />} {/* Adjusting icon size */}
+        </div>
+
+        {/* Navbar Links */}
+        <div className={`navbar-links ${menuOpen ? "active" : ""}`}>
+          <ul>
+            <li>
+              <button className="login-btn" onClick={() => navigate("/login")}>
                 Login
               </button>
-              <button className="btn btn-danger m-1 " onClick={()=>navigate("/register")}>Register</button>
-              <button
-                className="btn btn-danger m-1"
-                onClick={() => navigate("/companyRegister")}
-              >
+            </li>
+            <li>
+              <button className="btn btn btn-danger " onClick={() => navigate("/register")}>
+                Register
+              </button>
+            </li>
+            <li>
+              <button className="btn btn btn-danger" onClick={() => navigate("/companyRegister")}>
                 Company Register
               </button>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
