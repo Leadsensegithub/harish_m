@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/LandingPage.css";
 import Assets from "../assets/Assets";
-import { useNavigate } from "react-router-dom";
+ 
 
  
 import SliderComponent from "./SliderComponent";
@@ -10,18 +10,13 @@ import BuyCards from "../com/BuyCards";
 import Fotter from "../com/Fotter"
 import DefaultHeader from "../com/DefaultHeader";
 function LandingPage() {
-  const nav = useNavigate();
-
-  const handlebtn = () => {
-    nav("/companyRegister");
-  };
-
+  
   return (
     <>
       <div className="landingPage">
       <DefaultHeader />
         <div className="imgs">
-          <img src={Assets?.Top}></img>
+          <img src={Assets?.Top} alt="top"></img>
         </div>
         <div className="row serchbar" >
   <div className="col-lg-12">

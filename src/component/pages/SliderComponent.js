@@ -49,7 +49,7 @@ const SliderComponent = () => {
             Explore Business Listings <br /> Across Key Career Paths
           </h1>
           <div className="col">
-            <img style={{ width: "300px" }} src={Assets.Career_img} />
+            <img style={{ width: "300px" }}  src={Assets.Career_img} alt="loading..." />
           </div>
         </div>
         <div className=" col-lg-6  career-slider-container">
