@@ -18,6 +18,7 @@ import Reality from "./realty-icon.png"
 import Gadgets from "./gagdets-icon.png"
 import Sports from "./sports-icon.png"
 import Hospitality from "./hospitality-icon.png"
+import EmptyProfile from "./emprtyprofile.webp"
 const Assets = {
     LSmediaLOGO: LSmediaLOGO,
     Top: Top,
@@ -38,6 +39,7 @@ const Assets = {
     Reality:Reality,
     Gadgets:Gadgets,
     Sports:Sports,
-    Hospitality:Hospitality
+    Hospitality:Hospitality,
+    EmptyProfile:EmptyProfile
 }
 export default Assets

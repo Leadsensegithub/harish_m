@@ -752,7 +752,7 @@ text-align: left;
   width: 100%;
   background-color: #CDDEF8;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  
   top: 0;
   z-index: 1000;
   padding: 0.5rem 1.5rem;
@@ -829,11 +829,29 @@ background-color: red;
   opacity: 0.8;
 }
 
+ 
+.emptyprofile {
+  width: 60px;
+  height: 60px; /* Ensure it's a circle */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.emptyprofile:hover {
+  transform: scale(1.1); /* Slightly enlarge the profile */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
   .navbar-toggle {
     display: block;
   }
+
+ .emptyprofile{
+  margin-left: 50px;
+ }
 
   .navbar-links {
     position: fixed;
@@ -892,4 +910,28 @@ background-color: red;
     display: flex;
     width: auto;
   }
-}
+} 
+
+
+@media (min-width: 425px) {
+  .emptyprofile {
+    margin-left: 35px;
+  }
+} 
+
+
+
+@media (min-width: 375px) {
+  .emptyprofile {
+    margin-left: 32px;
+  }
+} 
+
+@media (min-width: 320px) {
+  .emptyprofile {
+    margin-left: 26px;
+  }
+  .emptyprofile{
+    width: 60px;
+  }
+} 

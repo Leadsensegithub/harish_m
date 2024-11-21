@@ -24,6 +24,7 @@ import DefaultCard from './component/com/DefaultCard';
 import Login from './component/pages/Login';
  
 import Card from './component/pages/Card';
+import SideBar from './component/com/SideBar';
 
 function App() {
   const location = useLocation();
@@ -83,6 +84,7 @@ function App() {
         <Route path="/personalsurvey" element={<PersonalServey />} />
         <Route path="/employmentsurvey" element={<EmploymentServey />} />
         <Route path="/vedioupload" element={<VedioUploadPage onNext={handleProgress} />} />
+        <Route path="/sidebar" element={<SideBar />} />
       </Routes>
     </div>
   );

@@ -50,7 +50,23 @@ function DefaultHeader() {
               <button className="btn btn btn-danger" onClick={() => navigate("/companyRegister")}>
                 Company Register
               </button>
+
             </li>
+            <li>
+              <button className="btn btn btn-danger" onClick={() => navigate()}>
+               LogOut 
+              </button>
+              
+            </li>
+            <li>
+  <img 
+    src={Assets.EmptyProfile} 
+    className="emptyprofile" 
+    onClick={() => navigate()} 
+    alt="Company Register" 
+  />
+</li>
+
           </ul>
         </div>
       </div>
